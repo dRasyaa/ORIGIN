@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kapaw! — thoughtfully crafted, human-grade wet cat food inspired by Indonesia's rich culinary heritage and made with locally sourced ingredients.">
+  <meta name="theme-color" content="#f8f4eb">
+  <title>Kapaw! — A Taste of Home for Every Paw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#fffaf0; --paper:#fffdf8; --ink:#28251f; --muted:#716b60;
+      --orange:#FF7E1C; --orange-dark:#FF561C; --yellow:#FFC01C;
+      --gold:#FFA41B; --lemon:#FFDB1C; --line:#f0dfc5; --green:#68765b; --radius:24px; --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--orange-dark)}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.045em;line-height:1.08}
+    h1{font-size:clamp(3.5rem,8vw,6.8rem);max-width:720px;margin:18px 0}
+    h2{font-size:clamp(2.4rem,5vw,4.3rem);margin:12px 0 18px}
+    p{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:12px;padding:14px 21px;border-radius:999px;background:var(--orange);color:white;font-weight:700;font-size:.9rem;transition:.2s}
+    .btn:hover{background:var(--orange-dark);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--ink);border:1px solid #cfc5b7}
+    .btn-outline:hover{background:var(--ink);color:white}
+    header{height:82px;display:flex;align-items:center;border-bottom:1px solid rgba(40,37,31,.08);position:relative;z-index:5}
+    nav{display:flex;align-items:center;justify-content:space-between}
+    .logo{display:inline-flex;align-items:center;width:148px;height:48px;flex:0 0 auto}
+    .logo img{width:100%;height:100%;object-fit:contain}
+    .navlinks{display:flex;align-items:center;gap:32px;font-size:.88rem;font-weight:600}
+    .navlinks a:not(.btn):hover{color:var(--orange)}
+    .menu{display:none;background:none;border:0;font-size:1.6rem}
+    .hero{padding:76px 0 86px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:48px;align-items:center}
+    .hero-copy p{font-size:1.08rem;max-width:480px;margin-bottom:28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-note{display:flex;align-items:center;gap:12px;margin-top:34px;font-size:.8rem;color:var(--muted)}
+    .dot{width:9px;height:9px;background:var(--green);border-radius:50%}
+    .hero-art{height:570px;position:relative}
+    .hero-photo{position:absolute;inset:0 28px 20px 20px;border-radius:48% 48% 24px 24px;overflow:hidden;background:#e7c49c}
+    .hero-photo img{object-position:52% center}
+    .floating-tag{position:absolute;right:0;bottom:0;background:var(--lemon);padding:20px 23px;border-radius:18px;max-width:190px;transform:rotate(3deg);box-shadow:0 14px 35px #6d4c2020}
+    .floating-tag strong{display:block;font:800 1.1rem Manrope;line-height:1.2}
+    .floating-tag small{display:block;margin-top:7px;color:#64502d;font-size:.75rem}
+    .sun{position:absolute;width:116px;height:116px;border-radius:50%;background:var(--lemon);top:5px;right:8px;z-index:-1}
+    .ticker{background:var(--orange);color:white;padding:16px 0;overflow:hidden;white-space:nowrap;font:700 .82rem Manrope;letter-spacing:.1em;text-transform:uppercase}
+    .ticker span{padding:0 24px}
+    .ticker b{color:var(--yellow);padding:0 8px}
+    section{padding:104px 0}
+    .section-head{max-width:650px;margin-bottom:46px}
+    .section-head p{font-size:1.02rem;max-width:530px}
+    .story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+    .story-image{height:520px;border-radius:var(--radius);overflow:hidden;position:relative}
+    .story-image img{object-position:center}
+    .image-caption{position:absolute;bottom:18px;left:18px;background:var(--paper);padding:12px 16px;border-radius:12px;font-size:.78rem;font-weight:700}
+    .story-copy p{max-width:510px}
+    .story-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+    .stat{border-top:1px solid var(--line);padding-top:15px}
+    .stat strong{display:block;font:800 1.65rem Manrope;color:var(--orange)}
+    .stat span{font-size:.78rem;color:var(--muted)}
+    .product-section{background:#f0e9dc}
+    .product-card{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:30px;overflow:hidden;min-height:510px}
+    .product-visual{background:var(--gold);min-height:460px;position:relative;overflow:hidden}
+    .product-visual img{object-position:center}
+    .product-label{position:absolute;top:22px;left:22px;background:var(--paper);padding:9px 13px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .product-info{padding:clamp(30px,5vw,66px);display:flex;flex-direction:column;justify-content:center}
+    .product-info h3{font-size:clamp(2.1rem,4vw,3.2rem);margin:12px 0}
+    .product-info p{max-width:430px}
+    .product-meta{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0 28px}
+    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:.75rem;color:var(--muted)}
+    .ingredient-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .ingredient{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:25px;min-height:215px}
+    .ingredient-icon{width:46px;height:46px;border-radius:14px;background:#fff0d8;display:grid;place-items:center;font-size:1.35rem;margin-bottom:24px}
+    .ingredient h3{font-size:1.25rem;margin-bottom:8px}
+    .ingredient p{font-size:.88rem;margin:0}
+    .values{background:#283128;color:#f8f4eb}
+    .values .eyebrow{color:var(--yellow)}
+    .values h2{max-width:660px}
+    .values p{color:#c7c9bd}
+    .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:55px}
+    .value-item{border-top:1px solid #596052;padding-top:22px}
+    .value-number{font:700 .8rem Manrope;color:var(--yellow);letter-spacing:.1em}
+    .value-item h3{font-size:1.35rem;margin:16px 0 10px;color:white}
+
+    .community-section{background:var(--gold);position:relative;overflow:hidden}
+    .community-section:before{content:"✳";position:absolute;right:4%;top:35px;font-size:8rem;color:rgba(255,255,255,.28);transform:rotate(18deg)}
+    .community-section .eyebrow{color:#7a3518}
+    .community-section .section-head p{color:#68442b}
+    .community-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:42px;align-items:center}
+    .meetup-poster{max-width:330px;margin:auto;border:8px solid var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 18px 45px rgba(83,45,13,.18);transform:rotate(-2deg)}
+    .meetup-poster img{height:auto;object-fit:contain}
+    .meetup-copy{background:var(--paper);border-radius:26px;padding:clamp(26px,4vw,46px);box-shadow:0 15px 35px rgba(83,45,13,.08)}
+    .meetup-copy h3{font-size:clamp(2rem,4vw,3.2rem);margin:12px 0}
+    .meetup-copy>p{max-width:580px}
+    .event-facts{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 25px}
+    .event-fact{background:#fff0d8;border-radius:12px;padding:10px 13px;font-size:.78rem;font-weight:700}
+    .activity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0 26px}
+    .activity{border:1px solid var(--line);border-radius:14px;padding:13px;display:flex;gap:11px;align-items:center;font-size:.84rem;font-weight:700}
+    .activity span{font-size:1.35rem}
+    .community-note{font-size:.78rem!important;color:#8a6546!important;margin:14px 0 0}
+
+    .closing{padding:100px 0}
+    .closing-inner{background:var(--lemon);border-radius:30px;padding:clamp(34px,7vw,78px);text-align:center;position:relative;overflow:hidden}
+    .closing-inner h2{max-width:700px;margin:12px auto 18px}
+    .closing-inner p{max-width:500px;margin:0 auto 26px;color:#66532e}
+    footer{background:var(--paper);padding:48px 0 25px;border-top:1px solid var(--line)}
+    .footer-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;padding-bottom:40px}
+    .footer-brand p{max-width:300px;font-size:.88rem;margin:10px 0}
+    .footer-links{display:flex;gap:50px}
+    .footer-col strong{display:block;font:700 .8rem Manrope;margin-bottom:14px}
+    .footer-col a{display:block;color:var(--muted);font-size:.83rem;margin:8px 0}
+    .footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;color:#928b80;font-size:.75rem}
+    @media(max-width:800px){
+      .navlinks{gap:17px}.navlinks a:not(.btn){display:none}
+      .hero{padding:48px 0 65px}.hero-grid,.story-grid,.product-card{grid-template-columns:1fr}
+      .hero-art{height:460px;max-width:560px;width:100%;margin:15px auto 0}
+      section{padding:76px 0}.story-grid{gap:35px}.story-image{height:390px}
+      .product-visual{min-height:360px}.ingredient-grid{grid-template-columns:1fr 1fr}
+      .value-grid{grid-template-columns:1fr;gap:22px;margin-top:35px}
+      .community-layout{grid-template-columns:1fr;gap:30px}.meetup-poster{max-width:280px}
+    }
+    @media(max-width:520px){
+      .logo{width:126px;height:42px}
+      .wrap{width:min(var(--max),calc(100% - 34px))}
+      header{height:70px}.navlinks .btn{padding:11px 15px;font-size:.78rem}
+      h1{font-size:3.45rem}.hero-art{height:390px}.hero-photo{inset:0 15px 18px 8px}
+      .floating-tag{right:-2px;padding:15px;max-width:160px}
+      .story-stats{gap:10px}.ingredient-grid{grid-template-columns:1fr}
+      .activity-grid{grid-template-columns:1fr}
+      .ingredient{min-height:0}.footer-top{flex-direction:column}.footer-links{gap:35px}
+      .footer-bottom{gap:10px;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="logo" href="#home" aria-label="Kapaw home"><img src="kapaw-logo.png" alt="Kapaw! logo"></a>
+      <div class="navlinks">
+        <a href="#story">Our story</a><a href="#product">The menu</a><a href="#ingredients">Ingredients</a><a href="#community">Community</a><a href="#impact">Our impact</a>
+        <a class="btn" href="#contact">Say hello <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A little taste of Indonesia</div>
+          <h1>A taste of home for every <span style="color:var(--orange)">paw.</span></h1>
+          <p>Meet a more thoughtful way to feed your feline. Real ingredients, local roots, and recipes inspired by the flavours we call home.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#product">Meet the menu <span>↗</span></a>
+            <a class="btn btn-outline" href="#story">Get to know us</a>
+          </div>
+          <div class="hero-note"><span class="dot"></span> Made with locally sourced ingredients · Crafted with care</div>
+        </div>
+        <div class="hero-art">
+          <div class="sun"></div>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=1100&q=85" alt="Curious orange and white cat looking toward the camera">
+          </div>
+          <div class="floating-tag"><strong>Good food.<br>Good feelings.</strong><small>For the ones who make a house feel like home.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker"><div class="wrap">REAL INGREDIENTS <b>✳</b> LOCAL ROOTS <b>✳</b> HAPPY PAWS <b>✳</b> REAL INGREDIENTS <b>✳</b> LOCAL ROOTS <b>✳</b> HAPPY PAWS</div></div>
+
+    <section id="story">
+      <div class="wrap story-grid">
+        <div class="story-image">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1000&q=85" alt="A cat relaxing in warm natural light">
+          <div class="image-caption">Made with love, rooted in Indonesia.</div>
+        </div>
+        <div class="story-copy">
+          <div class="eyebrow">The story behind the bowl</div>
+          <h2>Good food should feel good in every way.</h2>
+          <p>Kapaw! began with a simple thought: our cats deserve thoughtful nutrition, and the ingredients around us deserve to be valued.</p>
+          <p>We bring these two ideas together through human-grade processing standards, carefully selected local ingredients, and recipes that take inspiration from Indonesia's culinary heritage.</p>
+          <div class="story-stats">
+            <div class="stat"><strong>Local</strong><span>Ingredients sourced close to home</span></div>
+            <div class="stat"><strong>Thoughtful</strong><span>Care in every part of the process</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section" id="product">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">From our kitchen</div>
+          <h2>A familiar flavour, made for feline friends.</h2>
+          <p>Our first recipe takes inspiration from a beloved Indonesian dish and reimagines it for the bowl.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-visual">
+            <img src="https://images.unsplash.com/photo-1608831540955-35094d48694a?auto=format&fit=crop&w=1000&q=85" alt="Fresh fish and ingredients arranged for cooking">
+            <div class="product-label">Our first recipe · 100 g</div>
+          </div>
+          <div class="product-info">
+            <div class="eyebrow">01 / Banten collection</div>
+            <h3>Banten Dawn Delight</h3>
+            <p>Inspired by Banten's iconic sate bandeng, this recipe celebrates the richness of local milkfish with a thoughtful blend of selected ingredients.</p>
+            <div class="product-meta"><span class="pill">Milkfish-inspired</span><span class="pill">Locally sourced</span><span class="pill">Real-food texture</span></div>
+            <a class="btn" href="#contact">Ask about the product <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ingredients">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What's in the bowl</div>
+          <h2>Know what goes into every bite.</h2>
+          <p>We believe good nutrition starts with ingredient choices you can understand. Here's what inspires our approach.</p>
+        </div>
+        <div class="ingredient-grid">
+          <article class="ingredient"><div class="ingredient-icon">🐟</div><h3>Local goodness</h3><p>We spotlight ingredients from Indonesian producers, including locally sourced fish and poultry.</p></article>
+          <article class="ingredient"><div class="ingredient-icon">🥕</div><h3>Thoughtful variety</h3><p>Selected vegetables and complementary ingredients help make each recipe considered and balanced.</p></article>
+          <article class="ingredient"><div class="ingredient-icon">🍲</div><h3>Care in preparation</h3><p>Our human-grade approach focuses on careful ingredient handling and food-processing standards.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="community-section" id="community">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">The Kapaw! community</div>
+          <h2>More than customers. We're a community of pawrents.</h2>
+          <p>We believe a pet food brand should bring people together, not just put products on shelves. That's why we're creating moments for cat parents to connect, learn, play, and share their love for their cats.</p>
+        </div>
+        <div class="community-layout">
+          <div class="meetup-poster">
+            <img src="kapaw-community-meetup.png" alt="Kapaw! Customer Meetup event poster">
+          </div>
+          <div class="meetup-copy">
+            <div class="eyebrow">Our community activity · Offline gathering</div>
+            <h3>Kapaw! Customer Meetup</h3>
+            <p>An offline gathering where cat parents can meet fellow pawrents, exchange stories, and spend a fun afternoon with their cats. It's also a chance for us to listen directly to our community and introduce Kapaw! through an experience—not just an advertisement.</p>
+            <div class="event-facts">
+              <div class="event-fact">📅 Wednesday, 13 January 2027</div>
+              <div class="event-fact">🕒 15.00–19.00 WIB</div>
+              <div class="event-fact">📍 The Cat Cabin, Bandung</div>
+            </div>
+            <strong>What's happening?</strong>
+            <div class="activity-grid">
+              <div class="activity"><span>🎤</span> Pawrent Talk</div>
+              <div class="activity"><span>🧶</span> Games & Playtime</div>
+              <div class="activity"><span>📸</span> Photo Contest</div>
+              <div class="activity"><span>🐾</span> Kapaw! Product Testing</div>
+              <div class="activity"><span>🎁</span> Doorprize & Goodie Bag</div>
+            </div>
+            <a class="btn" href="#contact">Join the Kapaw! community <span>↗</span></a>
+            <p class="community-note">Event details and registration information are based on the supplied meetup poster. Registration link/contact can be added when available.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values" id="impact">
+      <div class="wrap">
+        <div class="eyebrow">More than a meal</div>
+        <h2>Better bowls can create a bigger ripple.</h2>
+        <p style="max-width:580px">We want every pouch to tell a story that goes beyond the food itself — connecting feline nutrition with the people and places behind our ingredients.</p>
+        <div class="value-grid">
+          <article class="value-item"><div class="value-number">01 / NUTRITION</div><h3>Thoughtful feline nutrition</h3><p>Putting ingredient quality and cats' nutritional needs at the heart of product development.</p></article>
+          <article class="value-item"><div class="value-number">02 / COMMUNITY</div><h3>Local economic connection</h3><p>Building relationships with local farmers, fishers, and suppliers as we grow.</p></article>
+          <article class="value-item"><div class="value-number">03 / RESOURCES</div><h3>Valuing local resources</h3><p>Exploring ways to make better use of local ingredients through responsible sourcing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="contact">
+      <div class="wrap">
+        <div class="closing-inner">
+          <div class="eyebrow">Let's make tails happy</div>
+          <h2>Curious about what's cooking?</h2>
+          <p>Want to know more about Kapaw!, our first recipe, or the journey we're building? We'd love to hear from you.</p>
+          <!-- Replace the email and social links with Kapaw!'s official contacts before publishing. -->
+          <a class="btn" style="background:var(--ink)" href="https://www.instagram.com/kapawforcats?utm_source=ig_web_button_share_sheet&rpxt=ZDNlZDc0MzIxNw==">Get in touch <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand"><a class="logo" href="#home"><img src="kapaw-logo.png" alt="Kapaw! logo"></a><p>A taste of home for every paw. Thoughtfully crafted, locally rooted.</p></div>
+        <div class="footer-links">
+          <div class="footer-col"><strong>Explore</strong><a href="#story">Our story</a><a href="#product">The menu</a><a href="#ingredients">Ingredients</a></div>
+          <div class="footer-col"><strong>Say hello</strong><a href="mailto:hello@kapaw.id">Email us</a><a href="#contact">Get in touch</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Kapaw! All rights reserved.</span><span>Made with care, in Indonesia.</span></div>
+    </div>
+  </footer>
+</body>
+</html>
